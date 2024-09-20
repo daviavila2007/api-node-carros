@@ -1,0 +1,28 @@
+#PARA UTILIZAR ESSES ENDPOINTS É NECESSÁRIO INSTALAR A EXTENSÃO DO VSCODE "REST CLIENT"
+###
+
+GET http://localhost:3333/carros
+
+###
+
+POST http://localhost:3333/carros
+Content-Type: application/json
+
+{
+    "name": "Renault kwid",
+    "plate": "12345"
+}
+
+###
+
+PUT http://localhost:3333/localhost:3333/carros/44b46536-4bbd-4af8-9e61-7cf4817cf1fa
+Content-Type: application/json
+
+{
+    "name": "Fiat Mobi",
+    "plate": "50122"
+}
+
+###
+
+DELETE http://localhost:3333/carros/44b46536-4bbd-4af8-9e61-7cf4817cf1fa
