@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="name" id="name">
+    <input type="text" placeholder="plate" id="plate">
+    <button onclick="criarCarro()">Criar carro</button>
+    <p id="carros"></p>
+    <script>
+        async function pegarCarros () {
+            const reposta = await fetch('http://localhost:3333/carros', {
+                method: 'GET'
+            })
+            const carros = await reposta.json();
+            console.log(carros);
+
+            const elementoP = document.getElementById('carros');
+            elementoP.innerHTML = carros[1].name;
+
+            getCarros();
+        }
+        async function criarCarro () {
+            const name = document.getElementById('name').value;
+            const plate = document.getElementById('plate').value;
+
+            const novoCarro = {
+                "name": "Fiat mobi",
+                "plate": "12345",
+            };
+            const resposta = await fetch('http://localhost:3333/carros',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novoCarro)
+            })
+        }
+        
+    </script>
+</body>
+</html>
